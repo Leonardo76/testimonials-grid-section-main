@@ -1,0 +1,17 @@
+@use "../utils/functions" as *;
+
+//$screen-size-mobile: rem(375);
+//$screen-size-tablet: rem(768);
+//$screen-size-desktop: rem(1440);
+
+$breakpoints-up: (
+        "mobile": rem(375),
+        "tablet": rem(768),
+        "desktop": rem(1440),
+);
+
+@mixin breakpoint($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}

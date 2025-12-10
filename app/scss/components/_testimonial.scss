@@ -1,0 +1,236 @@
+@use "../utils/functions" as *;
+@use "../layout/screen-size" as *;
+
+.testimonial {
+  display: grid;
+  gap: (rem(32)); //32px;
+  margin-block: (rem(73)); //73px;
+  padding-inline: (rem(35)); //35px;
+  width: 100%; //>=305px;
+  margin-inline: auto;
+
+  @include breakpoint(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, auto);
+    margin-block-start: (rem(83)); //83px;
+    margin-block-end: (rem(113)); //113px;
+    padding-inline: (rem(60)); //60px;
+
+    .card1 {
+      grid-area: 1 / 1 / 2 / -1;
+    }
+    .card2 {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+    .card3 {
+      grid-area: 2 / 2 / 3 / -1;
+    }
+    .card4 {
+      grid-area: 3 / 1 / 4 / -1;
+    }
+    .card5 {
+      grid-area: 4 / 1 / 5 / -1;
+    }
+  }
+
+  @include breakpoint(desktop) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: (rem(24)) (rem(32));
+    margin-block-start: (rem(229)); //229px;
+    margin-block-end: (rem(218)); //218px;
+    padding-inline: (rem(165)); //165px;
+
+    .card1 {
+      grid-area: 1 / 1 / 2 / 3;
+    }
+    .card2 {
+      grid-area: 1 / 3 / 2 / 4;
+    }
+    .card3 {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+    .card4 {
+      grid-area: 2 / 2 / 3 / 4;
+    }
+    .card5 {
+      grid-area: 1 / 4 / 3 / 5;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: (rem(16)); //16px;
+    padding: (rem(32)); //32px;
+    //width: 305px;
+    border-radius: 8px;
+    box-shadow: (shadow());
+    align-items: start;
+
+    //region card variants
+    &.card1 {
+      background-color: var(--color-card1-bg);
+
+      //"
+      background-image: quote();
+      background-repeat: no-repeat;
+      background-position: (left calc(100% + rem(140)) top 0); // SE SCHIMBA DE LA TEL LA TABLETA SI PC
+
+      @include breakpoint(tablet) {
+        background-position: (left calc(rem(376)) top 0); // SE SCHIMBA DE LA TEL LA TABLETA SI PC
+      }
+    }
+
+    &.card2 {
+      background-color: var(--color-card2-bg);
+    }
+
+    &.card3 {
+      background-color: var(--color-card3-bg);
+    }
+
+    &.card4 {
+      background-color: var(--color-card4-bg);
+    }
+
+    &.card5 {
+      background-color: var(--color-card5-bg);
+    }
+
+    //endregion
+
+    &-author {
+      display: flex;
+      gap: (rem(17)); //17px;
+
+      &-image {
+        width: (rem(28)); //28px
+        border: 2px solid var(--color-card-image-border);
+        border-radius: 100%;
+      }
+
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: (rem(4)); //4px;
+
+        &-name {
+          //region card variants
+          &.card1 {
+            color: var(--color-card1-name);
+          }
+
+          &.card2 {
+            color: var(--color-card2-name);
+          }
+
+          &.card3 {
+            color: var(--color-card3-name);
+          }
+
+          &.card4 {
+            color: var(--color-card4-name);
+          }
+
+          &.card5 {
+            color: var(--color-card5-name);
+          }
+
+          //endregion
+        }
+
+        &-verified {
+          font-size: var(--font-size-verified);
+          font-weight: var(--font-weight-verified);
+          line-height: 1.1;
+
+          //region card variants
+          &.card1 {
+            color: var(--color-card1-verified);
+          }
+
+          &.card2 {
+            color: var(--color-card2-verified);
+          }
+
+          &.card3 {
+            color: var(--color-card3-verified);
+          }
+
+          &.card4 {
+            color: var(--color-card4-verified);
+          }
+
+          &.card5 {
+            color: var(--color-card5-verified);
+          }
+
+          //endregion
+        }
+      }
+    }
+
+    &-blockquote {
+      display: flex;
+      flex-direction: column;
+      gap: (rem(16)); //16px;
+
+      &-emphasis {
+        font-size: var(--font-size-emphasis);
+        font-weight: var(--font-weight-emphasis);
+        line-height: 1.2;
+
+        //region card variants
+        &.card1 {
+          color: var(--color-card1-emphasis);
+        }
+
+        &.card2 {
+          color: var(--color-card2-emphasis);
+        }
+
+        &.card3 {
+          color: var(--color-card3-emphasis);
+        }
+
+        &.card4 {
+          color: var(--color-card4-emphasis);
+        }
+
+        &.card5 {
+          color: var(--color-card5-emphasis);
+        }
+
+        //endregion
+      }
+
+      &-text {
+        //region card variants
+        &.card1 {
+          color: var(--color-card1-text);
+        }
+
+        &.card2 {
+          color: var(--color-card2-text);
+        }
+
+        &.card3 {
+          color: var(--color-card3-text);
+        }
+
+        &.card4 {
+          color: var(--color-card4-text);
+        }
+
+        &.card5 {
+          color: var(--color-card5-text);
+        }
+
+        //endregion
+      }
+    }
+
+  }
+}
+
